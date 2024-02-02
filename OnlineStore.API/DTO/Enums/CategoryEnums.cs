@@ -8,7 +8,7 @@ namespace OnlineStore.API.DTO.Enums
 		MensClothing,
 		[JsonPropertyName("women's clothing")]
 		WomensClothing,
-		[JsonPropertyName("jewelry")]
+		[JsonPropertyName("jewelery")]
 		Jewelry,
 		[JsonPropertyName("electronics")]
 		Electronics

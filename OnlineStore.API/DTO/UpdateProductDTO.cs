@@ -1,4 +1,4 @@
-﻿namespace OnlineStore.API.DTO.ProductDTO
+﻿namespace OnlineStore.API.DTO
 {
     public class UpdateProductDTO
     {

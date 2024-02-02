@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.JsonPatch;
-using OnlineStore.API.DTO.ProductDTO;
+using OnlineStore.API.DTO;
+using OnlineStore.API.Helpers;
 using OnlineStore.API.Interfaces;
 
 namespace OnlineStore.API.Services
@@ -13,20 +14,20 @@ namespace OnlineStore.API.Services
 			_http = httpClientFactory;
 		}
 
-		public async Task<List<ProductDTO>> GetAllProducts(int page, int quantity)
+		public async Task<List<ProductDTO>> GetAllProducts(int pageNumber, int resultsPerPage)
 		{
 			var http = _http.CreateClient(clientName);
 			var response = await http.GetFromJsonAsync<List<ProductDTO>>("products")
 				?? new List<ProductDTO>();
 
-			return response;
+			return Pagination.ReturnPaginatedList(pageNumber, resultsPerPage, response);
 		}
 
-		public async Task<ProductDTO> GetSingle(int id)
+		public async Task<ProductDTO> GetSingleProduct(int id)
 		{
 			var http = _http.CreateClient(clientName);
 			var response = await http.GetFromJsonAsync<ProductDTO>($"products/{id}")
-				?? new ProductDTO();
+				?? throw new ArgumentOutOfRangeException($"Sorry product with id: {id} couldn't be found!");
 
 			return response;
 		}
@@ -84,6 +85,15 @@ namespace OnlineStore.API.Services
 
 			return await response.Content.ReadFromJsonAsync<ProductDTO>()
 				?? throw new Exception("Product with this id couldn't be found.");
+		}
+
+		public async Task<List<CategoryDTO>> GetAllCategories()
+		{
+			var http = _http.CreateClient(clientName);
+			var response = await http.GetFromJsonAsync<List<CategoryDTO>>("products/categories")
+				?? new List<CategoryDTO>();
+
+			return response;
 		}
 	}
 }
