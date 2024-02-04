@@ -17,10 +17,10 @@ namespace OnlineStore.API.Controllers
 			_productService = productService;
 		}
 
-		[HttpGet("/{page}/{quantity}")]
-		public async Task<ActionResult<List<ProductDTO>>> GetAllProducts([FromRoute] int page = 0, [FromRoute] int quantity = 0)
+		[HttpGet]
+		public async Task<ActionResult<List<ProductDTO>>> GetAllProducts([FromQuery] int pageNumber = 0, [FromQuery] int resultsPerPage = 0)
 		{
-			return Ok(await _productService.GetAllProducts(page, quantity));
+			return Ok(await _productService.GetAllProducts(pageNumber, resultsPerPage));
 		}
 
 		[HttpGet("{id}")]
