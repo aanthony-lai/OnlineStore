@@ -1,13 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStore.API.DTO;
 using OnlineStore.API.Interfaces;
 
 namespace OnlineStore.API.Controllers
 {
-	[Authorize]
-    [Route("api/products")]
+
+	[Route("api/products")]
 	[ApiController]
 	public class ProductsController : ControllerBase
 	{
@@ -19,7 +18,7 @@ namespace OnlineStore.API.Controllers
 		}
 
 		[HttpGet("/{page}/{quantity}")]
-		public async Task<ActionResult<List<ProductDTO>>> GetAllProducts([FromRoute]int page = 0, [FromRoute]int quantity = 0)
+		public async Task<ActionResult<List<ProductDTO>>> GetAllProducts([FromRoute] int page = 0, [FromRoute] int quantity = 0)
 		{
 			return Ok(await _productService.GetAllProducts(page, quantity));
 		}
@@ -42,13 +41,13 @@ namespace OnlineStore.API.Controllers
 		}
 
 		[HttpPatch("{id}")]
-		public async Task<ActionResult<ProductDTO>> UpdateProduct([FromRoute]int id, [FromBody]JsonPatchDocument productToUpdate)
+		public async Task<ActionResult<ProductDTO>> UpdateProduct([FromRoute] int id, [FromBody] JsonPatchDocument productToUpdate)
 		{
 			return Ok(await _productService.UpdateProduct(id, productToUpdate));
 		}
 
 		[HttpDelete("{id}")]
-		public async Task<ActionResult<ProductDTO>> DeleteProduct([FromRoute]int id)
+		public async Task<ActionResult<ProductDTO>> DeleteProduct([FromRoute] int id)
 		{
 			return Ok(await _productService.DeleteProduct(id));
 		}
