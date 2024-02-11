@@ -1,0 +1,47 @@
+﻿h1 {
+    font-family: 'Protest Riot', sans-serif;
+}
+
+h3 {
+    font-family: 'Protest Riot', sans-serif;
+}
+
+header {
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+    header h1 {
+        display: inline-block;
+    }
+
+.search-bar {
+    display: inline-block;
+    position: fixed;
+    right: 2rem;
+}
+
+    .search-bar input {
+        width: 10rem;
+        height: 35px;
+        margin-right: 0.5rem;
+        border-radius: 10px;
+        border: none;
+        opacity: 60%;
+    }
+
+    .search-bar button {
+        border-radius: 10px;
+    }
+
+nav {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-item {
+    border-bottom: solid 1px;
+}
