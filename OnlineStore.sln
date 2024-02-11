@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineStore.API", "OnlineStore.API\OnlineStore.API.csproj", "{97500D85-D514-4CFB-92A9-63CA39CDD785}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineStore.BlazorClient", "OnlineStore.BlazorClient\OnlineStore.BlazorClient.csproj", "{71057F3B-AB3C-4856-9FB0-7996D4D1E746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlineStore.BlazorClient", "OnlineStore.BlazorClient\OnlineStore.BlazorClient.csproj", "{71057F3B-AB3C-4856-9FB0-7996D4D1E746}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

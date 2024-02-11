@@ -1,0 +1,13 @@
+﻿img {
+    height: 240px;
+    object-fit: scale-down;
+}
+
+p {
+    font-family: 'Protest Riot', sans-serif;
+}
+
+.product-card {
+    border: solid 1px;
+    border-radius: 10px;
+}

@@ -1,0 +1,14 @@
+﻿<div class="card product-card" style="width: 13rem;">
+	<img src="@Product.image" class="card-img-top" alt="...">
+	<div class="card-body">
+		<p class="card-text">@Product.description.Substring(0, 50)...</p>
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public string ImageNotFoundURL { get; set; } = string.Empty;
+
+	[Parameter]
+	public ProductModel Product { get; set; } = new ProductModel();
+}

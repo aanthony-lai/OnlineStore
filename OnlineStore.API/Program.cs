@@ -12,7 +12,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddTransient<IMyAuthenticationService, AuthenticationService>();
-
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("MyPolicy", options =>
@@ -45,6 +44,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("MyPolicy");
 
 app.UseAuthentication();
 app.UseAuthorization();

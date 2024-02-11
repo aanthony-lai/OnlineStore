@@ -6,7 +6,6 @@ using OnlineStore.API.Interfaces;
 
 namespace OnlineStore.API.Controllers
 {
-	[Authorize]
 	[Route("api/products")]
 	[ApiController]
 	public class CategoriesController : ControllerBase

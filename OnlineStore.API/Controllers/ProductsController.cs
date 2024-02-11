@@ -5,7 +5,6 @@ using OnlineStore.API.Interfaces;
 
 namespace OnlineStore.API.Controllers
 {
-
 	[Route("api/products")]
 	[ApiController]
 	public class ProductsController : ControllerBase

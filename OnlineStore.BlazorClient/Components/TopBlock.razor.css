@@ -32,6 +32,10 @@ header {
     }
 
     .search-bar button {
+        font-family: 'Protest Riot', sans-serif;
+    }
+
+    .search-bar button {
         border-radius: 10px;
     }
 
