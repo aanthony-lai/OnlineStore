@@ -1,12 +1,14 @@
 ﻿@page "/"
 @inject IProductService _productService
 
-
-<ProductsContainer ImageNotFoundURL="@ImageNotFoundURL" ProductsList="ProductsList"/>
-
-
-
-
+<TopBlock 
+	GetProductsInCategoryCallback="GetProductsInCategoryHandler" 
+	GetProductsCallback="GetProductsHandler" >
+</TopBlock>
+<ProductsContainer 
+	ImageNotFoundURL="@ImageNotFoundURL" 
+	ProductsList="ProductsList">
+</ProductsContainer>
 
 @code {
 	public string ImageNotFoundURL = "https://t4.ftcdn.net/jpg/02/51/95/53/360_F_251955356_FAQH0U1y1TZw3ZcdPGybwUkH90a3VAhb.jpg";
@@ -15,5 +17,17 @@
 	protected override async Task OnInitializedAsync()
 	{
 		ProductsList = await _productService.GetProductsAsync();
+	}
+
+	public void GetProductsInCategoryHandler(List<ProductModel> productsList)
+	{
+		ProductsList = productsList;
+		StateHasChanged();
+	}
+
+	public void GetProductsHandler(List<ProductModel> productsList)
+	{
+		ProductsList = productsList;
+		StateHasChanged();
 	}
 }

@@ -6,7 +6,7 @@ using OnlineStore.API.Interfaces;
 
 namespace OnlineStore.API.Controllers
 {
-	[Route("api/products")]
+	[Route("api/categories")]
 	[ApiController]
 	public class CategoriesController : ControllerBase
 	{
@@ -16,13 +16,13 @@ namespace OnlineStore.API.Controllers
 			_categoryService = categoryService;
 		}
 
-		[HttpGet("/categories")]
+		[HttpGet]
 		public async Task<ActionResult<List<string>>> GetAllCategories()
 		{
 			return await _categoryService.GetAllCategories();
 		}
 
-		[HttpGet("/category/{category}")]
+		[HttpGet("{category}")]
 		public async Task<ActionResult<List<ProductDTO>>> GetProductsInCategory([FromRoute] CategoryEnums category)
 		{
 			return await _categoryService.GetProductsInCategory(category);

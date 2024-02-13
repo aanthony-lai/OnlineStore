@@ -1,9 +1,20 @@
 ﻿h1 {
-    font-family: 'Protest Riot', sans-serif;
+    font-family: 'Roboto Slab', serif;
+    display: inline-block;
 }
 
 h3 {
-    font-family: 'Protest Riot', sans-serif;
+    font-family: 'Roboto Slab', serif;
+}
+
+h3:hover {
+    cursor: pointer;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header {
@@ -12,12 +23,7 @@ header {
     text-align: center;
 }
 
-    header h1 {
-        display: inline-block;
-    }
-
 .search-bar {
-    display: inline-block;
     position: fixed;
     right: 2rem;
 }
@@ -32,10 +38,7 @@ header {
     }
 
     .search-bar button {
-        font-family: 'Protest Riot', sans-serif;
-    }
-
-    .search-bar button {
+        font-family: 'Roboto Slab', serif;
         border-radius: 10px;
     }
 

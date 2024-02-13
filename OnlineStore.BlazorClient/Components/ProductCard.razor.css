@@ -1,13 +1,20 @@
-﻿img {
-    height: 240px;
-    object-fit: scale-down;
+﻿p {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    font-size: 13px;
 }
 
-p {
-    font-family: 'Protest Riot', sans-serif;
+img {
+    height: 150px;
+    object-fit: scale-down;
+    padding: 10px;
 }
 
 .product-card {
     border: solid 1px;
     border-radius: 10px;
+}
+
+.card-body {
+    padding: 10px;
 }

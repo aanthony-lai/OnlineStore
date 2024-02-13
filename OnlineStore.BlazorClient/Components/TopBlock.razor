@@ -1,17 +1,39 @@
-﻿<header>
-	<h1>OnlineStore</h1>
+﻿@inject ICategoryService _categoryService
+@inject IProductService _productService
 
-	<div class="search-bar">
-		<input type="text" placeholder="" />
-		<button class="btn btn-dark">Search</button>
+<header>
+	<div class="container">
+		<h1>OnlineStore</h1>
+		<div class="search-bar">
+			<input type="text" placeholder="" />
+			<button class="btn btn-dark">Search</button>
+		</div>
 	</div>
-
 	<nav>
-		<h3 class="nav-item">View all</h3>
-		<h3 class="nav-item">Men's Clothing</h3>
-		<h3 class="nav-item">Women's Clothing</h3>
-		<h3 class="nav-item">Jeweleries</h3>
-		<h3 class="nav-item">Electronics</h3>
+		<h3 @onclick="() => GetProductsAsync()" class="nav-item">View all</h3>
+		<h3 @onclick="() => GetProductsInCategory(0)" class="nav-item">Men's Clothing</h3>
+		<h3 @onclick="() => GetProductsInCategory(1)" class="nav-item">Women's Clothing</h3>
+		<h3 @onclick="() => GetProductsInCategory(2)" class="nav-item">Jewelries</h3>
+		<h3 @onclick="() => GetProductsInCategory(3)" class="nav-item">Electronics</h3>
 	</nav>
 </header>
+
+@code {
+	[Parameter]
+	public EventCallback<List<ProductModel>> GetProductsInCategoryCallback { get; set; }
+	[Parameter]
+	public EventCallback<List<ProductModel>> GetProductsCallback { get; set; }
+
+	public async Task GetProductsInCategory(int category)
+	{
+		var result = await _categoryService.GetProductsFromCategoryAsync(category);
+		await GetProductsInCategoryCallback.InvokeAsync(result);
+	}
+
+	public async Task GetProductsAsync()
+	{
+		var result = await _productService.GetProductsAsync();
+		await GetProductsCallback.InvokeAsync(result);
+	}
+}
 
